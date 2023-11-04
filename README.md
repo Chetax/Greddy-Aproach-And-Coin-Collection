@@ -62,7 +62,7 @@ To run the program, follow these steps:
 
 1. Clone the repository to your local machine.
 
-2. Execute the main program file (e.g., `index.html`).
+2. Execute the main program file (e.g., `start.html`).
 
 3. Follow the on-screen instructions to take turns and play the game.
 
