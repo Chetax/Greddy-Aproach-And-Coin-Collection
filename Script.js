@@ -9,20 +9,20 @@ for (let i = 1; i <= 12; i++) {
 }
 
 const randomArray = [];
-for (let i = 0; i < 12; i++) {
+for (let j = 0; j < 12; j++) {
   const randomValue = Math.ceil(Math.random() * 50);
-  randomArray[i] = randomValue;
+  randomArray[j] = randomValue;
 }
 
-for (let i = 1; i <= 12; i++) {
-  if (randomArray[i - 1] === randomArray[12 - i - 1]) {
-    randomArray[12 - i - 1] = Math.ceil(Math.random() * 50);
+for (let j = 1; j <= 12; j++) {
+  if (randomArray[j - 1] === randomArray[12 - j - 1]) {
+    randomArray[12 - j - 1] = Math.ceil(Math.random() * 50);
   }
 }
 
-for (let i = 0; i < 12; i++) {
-  const ptag = coins[i + 1].querySelector('p');
-  ptag.innerHTML = randomArray[i];
+for (let j = 0; j < 12; j++) {
+  const ptag = coins[j + 1].querySelector('p');
+  ptag.innerHTML = randomArray[j];
 }
 
 // User interaction
@@ -33,6 +33,42 @@ let size = 13;
 
 async function playGame(i) {
   if (i <= 6) {
+
+    
+    for (let j =(i-1); j < 13-i; j++) {
+      const randomValue = Math.ceil(Math.random() * 50);
+      randomArray[j] = randomValue;
+    }
+    //for i==2 
+    for (let j =(i-1); j < 13-i; j++) {
+      if (randomArray[j - 1] === randomArray[12 - j - 1]) {
+        randomArray[12 - j - 1] = Math.ceil(Math.random() * 50);
+      }
+    }
+    
+    for(let j =(i-1); j < 13-i; j++) {
+      const ptag = coins[j + 1].querySelector('p');
+      ptag.innerHTML = randomArray[j];
+    }
+  
+    if(i==2){
+      for (let j =(i-1); j < 13-i; j++) {
+        const randomValue = Math.ceil(Math.random() * 50);
+        randomArray[j] = randomValue;
+      }
+      //for i==2 
+      for (let j =(i-1); j < 13-i; j++) {
+        if (randomArray[j - 1] === randomArray[12 - j - 1]) {
+          randomArray[12 - j - 1] = Math.ceil(Math.random() * 50);
+        }
+      }
+      
+      for(let j =(i-1); j < 13-i; j++) {
+        const ptag = coins[j + 1].querySelector('p');
+        ptag.innerHTML = randomArray[j];
+      }
+    }
+    
     if (i > 1) {
       await Player(i);
     } else {
@@ -150,6 +186,7 @@ else
 }
 
 // Start the game with i=1
+
 playGame(1);
 
 function DisplayWinner() {
